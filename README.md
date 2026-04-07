@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FixMyCity — Civic Issue Management System
 
 > A full-stack platform for reporting, tracking, and resolving civic infrastructure issues across a city. Built for municipal authorities and contractors, with a future-ready pipeline for citizen-submitted complaints.
@@ -721,4 +720,4 @@ npm test
 - **Property-based testing**: Core invariants (bid exclusivity, status sync, color mapping, analytics derivation) are verified with 100+ randomized iterations using fast-check.
 =======
 # FixMyCity - Team hashinclaude
->>>>>>> 5c7fa3d0cc52c42ad30a4278fceac9a43b07d2fe
+
