@@ -534,72 +534,7 @@ When a Job has a `complaintId`, the linked Complaint's status is automatically u
 
 ---
 
-## 14. Project Structure
-
-```
-fixmycity/
-├── backend/                          # Node.js/Express API
-│   ├── config/
-│   │   ├── db.js                     # MongoDB connection
-│   │   └── cloudinary.js             # Cloudinary SDK config
-│   ├── controllers/
-│   │   ├── authController.js         # Signup + Login
-│   │   ├── jobController.js          # Job CRUD, assign, status, demo
-│   │   ├── bidController.js          # Bid creation + retrieval
-│   │   └── complaintController.js    # Complaint CRUD
-│   ├── middleware/
-│   │   └── authMiddleware.js         # JWT verification
-│   ├── models/
-│   │   ├── User.js                   # User schema
-│   │   ├── Job.js                    # Job schema
-│   │   ├── Bid.js                    # Bid schema
-│   │   └── Complaint.js              # Complaint schema
-│   ├── routes/                       # Express route definitions
-│   ├── utils/
-│   │   └── mailer.js                 # Nodemailer utility
-│   ├── tests/
-│   │   ├── app.js                    # Test app setup
-│   │   └── setup.js                  # Jest setup (mongodb-memory-server)
-│   ├── .env                          # Environment variables
-│   ├── server.js                     # Express app entry point
-│   └── package.json
-│
-└── fixmycity-authority-portal-main/
-    └── FixMyCity-authority-portal-main/   # React frontend (both dashboards)
-        ├── src/
-        │   ├── pages/
-        │   │   ├── Dashboard.tsx          # Authority analytics dashboard
-        │   │   ├── Jobs.tsx               # Authority Kanban board
-        │   │   ├── Complaints.tsx         # Complaint management
-        │   │   ├── MapDashboard.tsx       # Authority map view
-        │   │   ├── Landing.tsx            # Landing page
-        │   │   ├── Login.tsx / Signup.tsx # Authority auth
-        │   │   └── contractor/            # All contractor pages
-        │   │       ├── Dashboard.tsx
-        │   │       ├── Jobs.tsx
-        │   │       ├── Bids.tsx
-        │   │       ├── MyJobs.tsx
-        │   │       ├── MapPage.tsx
-        │   │       └── Profile.tsx
-        │   ├── components/
-        │   │   ├── CreateJobModal.tsx     # Issue creation form (real + demo mode)
-        │   │   ├── DashboardLayout.tsx    # Authority layout wrapper
-        │   │   ├── ProtectedRoute.tsx     # Authority auth guard
-        │   │   ├── StatCard.tsx           # Analytics stat card
-        │   │   └── contractor/
-        │   │       ├── ContractorLayout.tsx
-        │   │       ├── ContractorProtectedRoute.tsx
-        │   │       ├── ReputationRing.tsx
-        │   │       ├── SeverityBadge.tsx
-        │   │       ├── StatusStepper.tsx
-        │   │       └── ThemeToggle.tsx
-        │   └── App.tsx                   # Root router
-        └── package.json
-```
-
----
-
-## 15. Environment Variables
+## 14. Environment Variables
 
 ### Backend (`backend/.env`)
 ```env
@@ -614,7 +549,7 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 ---
 
-## 16. Getting Started
+## 15. Getting Started
 
 ### Prerequisites
 - Node.js 18+
