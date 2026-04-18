@@ -53,18 +53,18 @@ The system is designed around a **source-agnostic data pipeline**: whether a job
 └─────────┼────────────────────────┼──────────────────┼────────┘
           │   JWT Bearer Token     │                  │
           ▼                        ▼                  ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   Node.js / Express API                     │
-│                                                             │
-│   JWT Auth Middleware (protects all non-auth routes)        │
-│                                                             │
-│   /api/auth    /api/jobs    /api/bids    /api/complaints     │
-│   /api/upload  /api/seed                                    │
+┌────────────────────────────────────────────────────────────┐
+│                   Node.js / Express API                    │
+│                                                            │
+│   JWT Auth Middleware (protects all non-auth routes)       │
+│                                                            │
+│   /api/auth    /api/jobs    /api/bids    /api/complaints   │
+│   /api/upload  /api/seed                                   │
 └──────────────────────┬──────────────────────┬──────────────┘
                        │                      │
               ┌────────▼────────┐    ┌────────▼────────┐
-              │   MongoDB Atlas  │    │  Cloudinary CDN  │
-              │  (all documents) │    │  (image storage) │
+              │   MongoDB Atlas │    │  Cloudinary CDN │
+              │  (all documents)│    │  (image storage)│
               └─────────────────┘    └─────────────────┘
 ```
 
