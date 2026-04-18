@@ -5,6 +5,10 @@ export const complaintService = {
     return api.get("/complaints/my");
   },
 
+  async getComplaintById(id) {
+    return api.get(`/complaints/${id}`);
+  },
+
   async createComplaint(payload) {
     return api.post("/complaints", payload);
   },

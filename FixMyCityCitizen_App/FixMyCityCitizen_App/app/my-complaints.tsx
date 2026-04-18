@@ -89,6 +89,9 @@ export default function MyComplaintsScreen() {
               key={item._id}
               title={item.description || item.category || 'Issue'}
               status={STATUS_LABEL[item.status] || item.status}
+              category={item.category}
+              location={item.location?.address || (item.location?.lat ? `${item.location.lat.toFixed(4)}, ${item.location.lng.toFixed(4)}` : null)}
+              date={item.createdAt ? new Date(item.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : null}
               onPress={() => router.push(`/complaint/${item._id}` as any)}
             />
           ))}

@@ -1,8 +1,15 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
+import { useEffect } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
+import authService from '../services/authService';
 
 export default function HomeScreen() {
+  useEffect(() => {
+    authService.isLoggedIn().then((loggedIn) => {
+      if (!loggedIn) router.replace('/login');
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.hero}>
@@ -28,6 +35,24 @@ export default function HomeScreen() {
         <PrimaryButton
           label="🗺️  View Hotspot Map"
           onPress={() => router.push('/map')}
+          variant="outline"
+        />
+        <View style={styles.gap} />
+        <PrimaryButton
+          label="📊  Issue History & Heatmap"
+          onPress={() => router.push('/history')}
+          variant="outline"
+        />
+        <View style={styles.gap} />
+        <PrimaryButton
+          label="🏆  Leaderboard"
+          onPress={() => router.push('/leaderboard')}
+          variant="outline"
+        />
+        <View style={styles.gap} />
+        <PrimaryButton
+          label="⭐  My Profile & Points"
+          onPress={() => router.push('/profile')}
           variant="outline"
         />
       </View>

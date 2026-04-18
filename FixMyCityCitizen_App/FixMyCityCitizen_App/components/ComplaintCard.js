@@ -1,26 +1,32 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 
 const STATUS_COLORS = {
-  Pending:     { bg: '#FEF3C7', text: '#92400E' },
-  'In Progress': { bg: '#DBEAFE', text: '#1E40AF' },
-  Resolved:    { bg: '#D1FAE5', text: '#065F46' },
+  'Received':    { bg: '#DBEAFE', text: '#1E40AF' },
+  'Job Created': { bg: '#EDE9FE', text: '#5B21B6' },
+  'In Progress': { bg: '#FEF3C7', text: '#92400E' },
+  'Resolved':    { bg: '#D1FAE5', text: '#065F46' },
 };
 
-export default function ComplaintCard({ title, status, onPress }) {
-  const colors = STATUS_COLORS[status] || STATUS_COLORS['Pending'];
+export default function ComplaintCard({ title, status, category, location, date, onPress }) {
+  const colors = STATUS_COLORS[status] || { bg: '#F3F4F6', text: '#374151' };
 
   return (
     <Pressable
       style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
       onPress={onPress}
     >
-      <View style={styles.left}>
-        <Text style={styles.title} numberOfLines={1}>{title}</Text>
-        <Text style={styles.tap}>Tap to view details →</Text>
+      <View style={styles.top}>
+        <Text style={styles.title} numberOfLines={2}>{title}</Text>
+        <View style={[styles.badge, { backgroundColor: colors.bg }]}>
+          <Text style={[styles.badgeText, { color: colors.text }]}>{status}</Text>
+        </View>
       </View>
-      <View style={[styles.badge, { backgroundColor: colors.bg }]}>
-        <Text style={[styles.badgeText, { color: colors.text }]}>{status}</Text>
+      <View style={styles.meta}>
+        {category ? <Text style={styles.metaText}>📁 {category}</Text> : null}
+        {location ? <Text style={styles.metaText} numberOfLines={1}>📍 {location}</Text> : null}
+        {date ? <Text style={styles.metaText}>🕐 {date}</Text> : null}
       </View>
+      <Text style={styles.tap}>Tap to view details →</Text>
     </Pressable>
   );
 }
@@ -31,9 +37,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     borderWidth: 1,
     borderColor: '#F3F4F6',
     shadowColor: '#000',
@@ -46,19 +49,18 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     transform: [{ scale: 0.98 }],
   },
-  left: {
-    flex: 1,
-    marginRight: 12,
+  top: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    marginBottom: 8,
   },
   title: {
     fontSize: 15,
     fontWeight: '600',
     color: '#1A1A2E',
-    marginBottom: 4,
-  },
-  tap: {
-    fontSize: 12,
-    color: '#9CA3AF',
+    flex: 1,
+    marginRight: 10,
   },
   badge: {
     paddingHorizontal: 10,
@@ -68,5 +70,17 @@ const styles = StyleSheet.create({
   badgeText: {
     fontSize: 12,
     fontWeight: '600',
+  },
+  meta: {
+    gap: 4,
+    marginBottom: 8,
+  },
+  metaText: {
+    fontSize: 12,
+    color: '#6B7280',
+  },
+  tap: {
+    fontSize: 12,
+    color: '#9CA3AF',
   },
 });
